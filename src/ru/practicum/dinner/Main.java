@@ -42,6 +42,11 @@ public class Main {
         String dishName = scanner.nextLine();
 
         // добавьте новое блюдо
+         if (dc.addNewDish(dishType, dishName)){
+             System.out.println("Блюдо добавлено в меню");
+         } else {
+             System.out.printf("Блюдо '%s' уже есть в категории: '%s'%n", dishName, dishType);
+         }
     }
 
     private static void generateDishCombo() {
