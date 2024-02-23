@@ -13,6 +13,10 @@ public class DinnerConstructor {
         menu = new HashMap<>();
     }
 
+    public boolean isDishTypeExist(String dishType){
+        return menu.containsKey(dishType);
+    }
+
     public boolean addNewDish(String dishType, String dishName) {
         List<String> dishes;
         if (menu.containsKey(dishType)){
