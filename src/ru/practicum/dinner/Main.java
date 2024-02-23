@@ -3,6 +3,7 @@ package ru.practicum.dinner;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.StringJoiner;
 
 public class Main {
 
@@ -76,6 +77,15 @@ public class Main {
         }
 
         // сгенерируйте комбинации блюд и выведите на экран
+        List<List<String>> combos = dc.generateDishCombo(numberOfCombos, comboDishTypes);
+        for (int i = 0; i < combos.size(); i++) {
+            System.out.printf("Комбо %s: %n", (i+1));
+            StringJoiner stringJoiner = new StringJoiner(", ");
+            for (String dish : combos.get(i)){
+                stringJoiner.add(dish);
+            }
+            System.out.printf("[%s] %n", stringJoiner);
+        }
 
     }
 }

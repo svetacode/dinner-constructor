@@ -1,9 +1,6 @@
 package ru.practicum.dinner;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class DinnerConstructor {
 
@@ -32,5 +29,25 @@ public class DinnerConstructor {
             dishes.add(dishName);
             return true;
         }
+    }
+
+    public List<List<String>> generateDishCombo(int numberOfCombos, List<String> comboDishTypes) {
+        List<List<String>> combos = new ArrayList<>(numberOfCombos);
+
+        Random random = new Random();
+        for (int i = 0; i < numberOfCombos; i++) {
+            List<String> comboContent = new ArrayList<>();
+            for (String dishType : comboDishTypes) {
+                List<String> availableDishes = menu.get(dishType);
+                int randomDishPosition = 0;
+                if (availableDishes.size()>1){
+                    randomDishPosition = random.nextInt(0, availableDishes.size() - 1);
+                }
+                comboContent.add(availableDishes.get(randomDishPosition));
+            }
+            combos.add(comboContent);
+        }
+
+        return combos;
     }
 }
